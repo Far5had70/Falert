@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Falert">
+        <attr name="setText" format="string"/>
+        <attr name="setHint" format="string"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="strokeRadius" format="dimension"/>
+        <attr name="strokeColor" format="color"/>
+        <attr name="strokeSize" format="dimension"/>
+        <attr name="textColor" format="color"/>
+        <attr name="imageSrc" format="integer"/>
+        <attr name="maxLenght" format="integer"/>
+        <attr name="setImageBackground" format="color"/>
+        <attr name="typeface" format="string"/>
+        <attr name="edtgravity"/>
+        <attr name="edtInputType"/>
+    </declare-styleable>
+
+    <attr name="edtgravity">
+        <flag name="right" value="1" />
+        <flag name="left" value="2" />
+        <flag name="center" value="3" />
+    </attr>
+
+    <attr name="edtInputType">
+        <flag name="phone" value="1" />
+        <flag name="number" value="2" />
+        <flag name="text" value="3" />
+        <flag name="password" value="4" />
+        <flag name="multiLine" value="5" />
+    </attr>
+
+</resources>
