@@ -101,7 +101,7 @@ You can try it out here [Sample Application](https://github.com/Far5had70/Falert
 
 
 
-**Date Picker:**
+**With Sihgle Button Example:**
 
 ```java
         LayoutInflater inflaterr = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
