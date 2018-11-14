@@ -43,12 +43,13 @@
         >
 
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/falert_icon"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:padding="2dp"
             android:layout_gravity="center|top"
-            android:src="@drawable/luncher" />
+            android:src="@drawable/profile" />
 
     </FrameLayout>
 

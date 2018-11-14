@@ -1,6 +1,6 @@
 # Falert
 
-<img src="https://raw.githubusercontent.com/Far5had70/Falert/master/record.gif" height="480" width="270">
+<img src="https://raw.githubusercontent.com/Far5had70/Falert/master/recorded.gif" height="480" width="270">
 
  Falert is a beautiful dialog for Android.
 
@@ -34,7 +34,7 @@ Add it in your root build.gradle at the end of repositories:
 
 ```gradle
 	dependencies {
-	        implementation 'com.github.Far5had70:Falert:1.3.0'
+	        implementation 'com.github.Far5had70:Falert:1.4.0'
 	}
 ```
 
