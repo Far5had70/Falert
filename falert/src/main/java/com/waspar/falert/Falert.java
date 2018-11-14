@@ -78,9 +78,11 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         icon = view.findViewById(R.id.frameLayout2);
 
 
-        positiveButton.setTypeface(typeFace);
-        negativeButton.setTypeface(typeFace);
-        positiveSingleButton.setTypeface(typeFace);
+        if (typeFace != null){
+            positiveButton.setTypeface(typeFace);
+            negativeButton.setTypeface(typeFace);
+            positiveSingleButton.setTypeface(typeFace);
+        }
 
         positiveButton.setTextSize(buttonTextSize);
         negativeButton.setTextSize(buttonTextSize);
