@@ -1,6 +1,6 @@
 # Falert
 
-<img src="https://raw.githubusercontent.com/Far5had70/Falert/master/clip.gif" height="480" width="270">
+<img src="https://raw.githubusercontent.com/Far5had70/Falert/master/record.gif" height="480" width="270">
 
  Falert is a beautiful dialog for Android.
 
