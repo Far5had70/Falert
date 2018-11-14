@@ -38,6 +38,7 @@ public class Falert extends DialogFragment implements View.OnClickListener {
     private DoubleButtonListener doubleButtonListener;
     private boolean autoDismiss = true;
     private boolean iconEnable = true;
+    private boolean buttonEnable = true;
     private String positiveText = null;
     private String negativeText = null;
     private int alertRadius = 40;
@@ -47,6 +48,8 @@ public class Falert extends DialogFragment implements View.OnClickListener {
     private int positiveButtonColor = 0;
     private int negativeButtonColor = 0;
     private int singleButtonColor = 0;
+    private int buttonTextColor = 0;
+    private float buttonTextSize = 13;
     private Typeface typeFace;
 
     public Falert(Context context) {
@@ -78,6 +81,16 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         positiveButton.setTypeface(typeFace);
         negativeButton.setTypeface(typeFace);
         positiveSingleButton.setTypeface(typeFace);
+
+        positiveButton.setTextSize(buttonTextSize);
+        negativeButton.setTextSize(buttonTextSize);
+        positiveSingleButton.setTextSize(buttonTextSize);
+
+        if (buttonTextColor != 0){
+            positiveButton.setTextColor(buttonTextColor);
+            negativeButton.setTextColor(buttonTextColor);
+            positiveSingleButton.setTextColor(buttonTextColor);
+        }
     }
 
     private void actionSetIcon() {
@@ -252,22 +265,22 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         return this;
     }
 
-    public Falert setIcon(Drawable iconDrawable) {
+    public Falert setHeaderIcon(Drawable iconDrawable) {
         this.iconDrawable = iconDrawable;
         return this;
     }
 
-    public Falert setPositiveButtonColor(int positiveButtonColor) {
+    public Falert setPositiveButtonBackground(int positiveButtonColor) {
         this.positiveButtonColor = positiveButtonColor;
         return this;
     }
 
-    public Falert setNegativeButtonColor(int negativeButtonColor) {
+    public Falert setNegativeButtonBackground(int negativeButtonColor) {
         this.negativeButtonColor = negativeButtonColor;
         return this;
     }
 
-    public Falert setSingleButtonColor(int singleButtonColor) {
+    public Falert setSingleButtonBackground(int singleButtonColor) {
         this.singleButtonColor = singleButtonColor;
         return this;
     }
@@ -277,8 +290,23 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         return this;
     }
 
-    public Falert setIconEnable(boolean iconEnable) {
+    public Falert setHeaderIconEnable(boolean iconEnable) {
         this.iconEnable = iconEnable;
+        return this;
+    }
+
+    public Falert setButtonEnable(boolean buttonEnable) {
+        this.buttonEnable = buttonEnable;
+        return this;
+    }
+
+    public Falert setButtonTextSize(float buttonTextSize) {
+        this.buttonTextSize = buttonTextSize;
+        return this;
+    }
+
+    public Falert setButtonTextColor(int buttonTextColor) {
+        this.buttonTextColor = buttonTextColor;
         return this;
     }
 
@@ -303,6 +331,12 @@ public class Falert extends DialogFragment implements View.OnClickListener {
 
         if (!iconEnable){
             icon.setVisibility(View.INVISIBLE);
+        }
+
+        if (!buttonEnable){
+            positiveButton.setVisibility(View.GONE);
+            negativeButton.setVisibility(View.GONE);
+            positiveSingleButton.setVisibility(View.GONE);
         }
 
         return this;
