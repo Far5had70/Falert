@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="falert_white">#ffffff</color>
+    <color name="falert_red">#e55b65</color>
+    <color name="falert_green">#0f5257</color>
+</resources>
