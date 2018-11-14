@@ -1,7 +1,7 @@
 package com.shaygan.customalert;
 
 import android.content.Context;
-import android.support.v4.app.FragmentManager;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,15 +11,66 @@ import android.widget.Toast;
 import com.waspar.falert.Falert;
 import com.waspar.falert.FalertButtonType;
 import com.waspar.falert.SingleButtonListener;
-import com.waspar.falert.TwoButtonListener;
+import com.waspar.falert.DoubleButtonListener;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initButton();
+    }
 
+    private void initButton() {
+        findViewById(R.id.button).setOnClickListener(this);
+        findViewById(R.id.button2).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.button:
+                singleAction();
+                break;
+            case R.id.button2:
+                doubleAction();
+                break;
+        }
+    }
+
+    private void doubleAction() {
+        LayoutInflater inflaterr = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View customView = inflaterr.inflate(R.layout.custom_view, null, false);
+
+        Falert falert = new Falert(this)
+                .setButtonType(FalertButtonType.Double_BUTTON)
+                .customView(customView)
+                .setAutoDismiss(true)
+                .setPositiveText("بلی")
+                .setNegativeText("خیر")
+                .setPositiveButtonColor(getResources().getColor(R.color.falert_green))
+                .setNegativeButtonColor(getResources().getColor(R.color.falert_red))
+                .setIcon(getResources().getDrawable(R.drawable.luncher))
+                .setAlertRadius(40)
+                .setButtonRadius(80)
+                .setIconEnable(true)
+                .setTypeFace(Typeface.createFromAsset(getAssets(), "bsans.ttf"))
+                .setDoubleButtonListener(new DoubleButtonListener() {
+                    @Override
+                    public void onClickPositive() {
+                        Toast.makeText(MainActivity.this, "Positive", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onClickNegative() {
+                        Toast.makeText(MainActivity.this, "Negative", Toast.LENGTH_SHORT).show();
+                    }
+                });
+        falert.show(getSupportFragmentManager() , "");
+    }
+
+    private void singleAction() {
         LayoutInflater inflaterr = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View customView = inflaterr.inflate(R.layout.custom_view, null, false);
 
@@ -27,9 +78,13 @@ public class MainActivity extends AppCompatActivity {
                 .setButtonType(FalertButtonType.ONE_BUTTON)
                 .customView(customView)
                 .setAutoDismiss(true)
-                .setPositiveText("صحیح")
-                .setNegativeText("غلط")
+                .setSingleButtonColor(getResources().getColor(R.color.falert_green))
+                .setPositiveText("بلی")
+                .setIcon(getResources().getDrawable(R.drawable.luncher))
                 .setAlertRadius(40)
+                .setButtonRadius(80)
+                .setIconEnable(true)
+                .setTypeFace(Typeface.createFromAsset(getAssets(), "bsans.ttf"))
                 .setSingleButtonListener(new SingleButtonListener() {
                     @Override
                     public void onClick() {
@@ -37,9 +92,5 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         falert.show(getSupportFragmentManager() , "");
-
-
     }
-
-
 }

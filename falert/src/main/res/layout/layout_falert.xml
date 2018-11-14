@@ -19,7 +19,7 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:id="@+id/frameLayoutFalert"
             android:layout_marginTop="30dp">
 
@@ -44,7 +44,7 @@
 
 
         <ImageView
-            android:id="@+id/error_dialog_icon"
+            android:id="@+id/falert_icon"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center|top"

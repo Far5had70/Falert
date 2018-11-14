@@ -1,6 +1,6 @@
 package com.waspar.falert;
 
-public interface TwoButtonListener {
+public interface DoubleButtonListener {
     void onClickPositive();
     void onClickNegative();
 }
