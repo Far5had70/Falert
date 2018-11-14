@@ -101,7 +101,7 @@ You can try it out here [Sample Application](https://github.com/Far5had70/Falert
 
 
 
-**With Sihgle Button Example:**
+**With Single Button Example:**
 
 ```java
         LayoutInflater inflaterr = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
