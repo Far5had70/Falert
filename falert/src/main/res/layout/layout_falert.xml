@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/root"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="35dp"
         android:background="@android:color/white">
 
@@ -40,13 +40,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/error_circle"
-        android:padding="2dp">
+        >
 
 
         <ImageView
             android:id="@+id/falert_icon"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center|top"
             android:src="@drawable/luncher" />
 
