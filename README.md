@@ -34,7 +34,7 @@ Add it in your root build.gradle at the end of repositories:
 
 ```gradle
 	dependencies {
-	        implementation 'com.github.Far5had70:Falert:1.1.0'
+	        implementation 'com.github.Far5had70:Falert:1.2.0'
 	}
 ```
 
