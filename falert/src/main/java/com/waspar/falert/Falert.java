@@ -17,7 +17,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.mikhaellopez.circularimageview.CircularImageView;
 
 @SuppressLint("ValidFragment")
 public class Falert extends DialogFragment implements View.OnClickListener {
