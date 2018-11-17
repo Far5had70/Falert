@@ -17,6 +17,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 @SuppressLint("ValidFragment")
 public class Falert extends DialogFragment implements View.OnClickListener {
@@ -26,7 +27,7 @@ public class Falert extends DialogFragment implements View.OnClickListener {
     private View roottt , view , icon;
     private TextView positiveSingleButton, negativeButton, positiveButton;
     private FrameLayout frameLayout;
-    //private CircularImageView imageView;
+    private CircularImageView imageView;
 
     private GradientDrawable positiveButtonBackground;
     private GradientDrawable negativeButtonBackground;
@@ -71,7 +72,7 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         negativeButton = view.findViewById(R.id.falert_negative_button);
         positiveButton = view.findViewById(R.id.falert_positive_button);
         frameLayout = view.findViewById(R.id.frameLayoutFalert);
-        //imageView = view.findViewById(R.id.falert_icon);
+        imageView = view.findViewById(R.id.falert_icon);
         icon = view.findViewById(R.id.frameLayout2);
 
 
@@ -92,9 +93,9 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         }
     }
 
-//    private void actionSetIcon() {
-//        imageView.setImageDrawable(iconDrawable);
-//    }
+    private void actionSetIcon() {
+        imageView.setImageDrawable(iconDrawable);
+    }
 
     private void actionSetCustomView() {
         frameLayout.addView(customView);
@@ -318,9 +319,9 @@ public class Falert extends DialogFragment implements View.OnClickListener {
             actionSetCustomView();
         }
 
-//        if (iconDrawable != null){
-//            actionSetIcon();
-//        }
+        if (iconDrawable != null){
+            actionSetIcon();
+        }
 
         if (buttonType == 1){
             actionSingleButtun();
