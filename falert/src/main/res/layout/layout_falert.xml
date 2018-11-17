@@ -43,7 +43,7 @@
         >
 
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/falert_icon"
             android:layout_width="100dp"
             android:layout_height="100dp"

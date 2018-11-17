@@ -16,12 +16,8 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import de.hdodenhof.circleimageview.CircleImageView;
-
-import static android.support.v4.util.Preconditions.checkNotNull;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 @SuppressLint("ValidFragment")
 public class Falert extends DialogFragment implements View.OnClickListener {
@@ -31,7 +27,7 @@ public class Falert extends DialogFragment implements View.OnClickListener {
     private View roottt , view , icon;
     private TextView positiveSingleButton, negativeButton, positiveButton;
     private FrameLayout frameLayout;
-    private CircleImageView imageView;
+    private CircularImageView imageView;
 
     private GradientDrawable positiveButtonBackground;
     private GradientDrawable negativeButtonBackground;
