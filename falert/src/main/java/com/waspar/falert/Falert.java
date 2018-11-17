@@ -46,7 +46,13 @@ public class Falert extends DialogFragment implements View.OnClickListener {
     private int positiveButtonColor = 0;
     private int negativeButtonColor = 0;
     private int singleButtonColor = 0;
-    private int buttonTextColor = 0;
+    private int PositiveButtonTextColor = 0;
+    private int NegativeButtonTextColor = 0;
+    private int SingleButtonTextColor = 0;
+    private int strokeButtonsSize = 2;
+    private int strokePositiveButtonColor = 0;
+    private int strokeNegativeButtonColor = 0;
+    private int strokeSingleButtonColor = 0;
     private float buttonTextSize = 13;
     private Typeface typeFace;
 
@@ -86,10 +92,14 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         negativeButton.setTextSize(buttonTextSize);
         positiveSingleButton.setTextSize(buttonTextSize);
 
-        if (buttonTextColor != 0){
-            positiveButton.setTextColor(buttonTextColor);
-            negativeButton.setTextColor(buttonTextColor);
-            positiveSingleButton.setTextColor(buttonTextColor);
+        if (PositiveButtonTextColor != 0){
+            positiveButton.setTextColor(PositiveButtonTextColor);
+        }
+        if (NegativeButtonTextColor != 0){
+            negativeButton.setTextColor(NegativeButtonTextColor);
+        }
+        if (SingleButtonTextColor != 0){
+            positiveSingleButton.setTextColor(SingleButtonTextColor);
         }
     }
 
@@ -116,8 +126,12 @@ public class Falert extends DialogFragment implements View.OnClickListener {
             positiveSingleButtonBackground = new GradientDrawable();
             positiveSingleButtonBackground.setShape(GradientDrawable.RECTANGLE);
             positiveSingleButtonBackground.setColor(context.getResources().getColor(R.color.falert_green));
+            positiveSingleButtonBackground.setStroke(strokeButtonsSize, context.getResources().getColor(R.color.falert_white));
             if (singleButtonColor != 0){
                 positiveSingleButtonBackground.setColor(singleButtonColor);
+            }
+            if (strokeSingleButtonColor != 0){
+                positiveSingleButtonBackground.setStroke(strokeButtonsSize, strokeSingleButtonColor);
             }
             positiveSingleButtonBackground.setCornerRadius(buttonRadius);
         }
@@ -145,8 +159,12 @@ public class Falert extends DialogFragment implements View.OnClickListener {
             negativeButtonBackground = new GradientDrawable();
             negativeButtonBackground.setShape(GradientDrawable.RECTANGLE);
             negativeButtonBackground.setColor(context.getResources().getColor(R.color.falert_red));
+            negativeButtonBackground.setStroke(strokeButtonsSize, context.getResources().getColor(R.color.falert_white));
             if (negativeButtonColor != 0){
                 negativeButtonBackground.setColor(negativeButtonColor);
+            }
+            if (strokeNegativeButtonColor != 0){
+                negativeButtonBackground.setStroke(strokeButtonsSize, strokeNegativeButtonColor);
             }
             negativeButtonBackground.setCornerRadius(buttonRadius);
         }
@@ -157,8 +175,12 @@ public class Falert extends DialogFragment implements View.OnClickListener {
             positiveButtonBackground = new GradientDrawable();
             positiveButtonBackground.setShape(GradientDrawable.RECTANGLE);
             positiveButtonBackground.setColor(context.getResources().getColor(R.color.falert_green));
+            positiveButtonBackground.setStroke(strokeButtonsSize, context.getResources().getColor(R.color.falert_white));
             if (positiveButtonColor != 0){
                 positiveButtonBackground.setColor(positiveButtonColor);
+            }
+            if (strokePositiveButtonColor != 0){
+                positiveButtonBackground.setStroke(strokeButtonsSize, strokePositiveButtonColor);
             }
             positiveButtonBackground.setCornerRadius(buttonRadius);
         }
@@ -305,8 +327,38 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         return this;
     }
 
-    public Falert setButtonTextColor(int buttonTextColor) {
-        this.buttonTextColor = buttonTextColor;
+    public Falert setPositiveButtonTextColor(int PositiveButtonTextColor) {
+        this.PositiveButtonTextColor = PositiveButtonTextColor;
+        return this;
+    }
+
+    public Falert setNegativeButtonTextColor(int NegativeButtonTextColor) {
+        this.NegativeButtonTextColor = NegativeButtonTextColor;
+        return this;
+    }
+
+    public Falert setSingleButtonTextColor(int SingleButtonTextColor) {
+        this.SingleButtonTextColor = SingleButtonTextColor;
+        return this;
+    }
+
+    public Falert setStrokePositiveButtonColor(int strokePositiveButtonColor) {
+        this.strokePositiveButtonColor = strokePositiveButtonColor;
+        return this;
+    }
+
+    public Falert setStrokeNegativeButtonColor(int strokeNegativeButtonColor) {
+        this.strokeNegativeButtonColor = strokeNegativeButtonColor;
+        return this;
+    }
+
+    public Falert setstrokeButtonsSize(int strokeButtonsSize) {
+        this.strokeButtonsSize = strokeButtonsSize;
+        return this;
+    }
+
+    public Falert setStrokeSingleButtonColor(int strokeSingleButtonColor) {
+        this.strokeSingleButtonColor = strokeSingleButtonColor;
         return this;
     }
 
