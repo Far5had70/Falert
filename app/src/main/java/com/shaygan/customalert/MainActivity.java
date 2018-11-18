@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .setButtonRadius(80)
                 .setButtonTextSize(13)
                 .setHeaderIconEnable(true)
-                .setButtonEnable(true)
+                .setButtonEnable(false)
                 .setTypeFace(Typeface.createFromAsset(getAssets(), "bsans.ttf"))
                 .setDoubleButtonListener(new DoubleButtonListener() {
                     @Override
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .setButtonTextSize(13)
                 .setHeaderIconEnable(true)
                 .setButtonEnable(true)
-                .setCancelableTouchOutside(false)
+                .setCancelableTouchOutside(true)
                 .setTypeFace(Typeface.createFromAsset(getAssets(), "bsans.ttf"))
                 .setSingleButtonListener(new SingleButtonListener() {
                     @Override

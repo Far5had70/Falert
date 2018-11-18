@@ -24,7 +24,7 @@ public class Falert extends DialogFragment implements View.OnClickListener {
 
     private Context context;
     private int buttonType;
-    private View roottt , view , icon;
+    private View roottt , view , icon , buttonRoot;
     private TextView positiveSingleButton, negativeButton, positiveButton;
     private FrameLayout frameLayout;
     private CircularImageView imageView;
@@ -82,6 +82,7 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         frameLayout = view.findViewById(R.id.frameLayoutFalert);
         imageView = view.findViewById(R.id.falert_icon);
         icon = view.findViewById(R.id.frameLayout2);
+        buttonRoot = view.findViewById(R.id.button_root);
 
 
         if (typeFace != null){
@@ -396,6 +397,7 @@ public class Falert extends DialogFragment implements View.OnClickListener {
             positiveButton.setVisibility(View.GONE);
             negativeButton.setVisibility(View.GONE);
             positiveSingleButton.setVisibility(View.GONE);
+            buttonRoot.setVisibility(View.GONE);
         }
 
         return this;
