@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .setButtonTextSize(13)
                 .setHeaderIconEnable(true)
                 .setButtonEnable(true)
+                .setCancelableTouchOutside(false)
                 .setTypeFace(Typeface.createFromAsset(getAssets(), "bsans.ttf"))
                 .setSingleButtonListener(new SingleButtonListener() {
                     @Override

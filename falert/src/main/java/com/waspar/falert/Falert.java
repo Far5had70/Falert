@@ -37,6 +37,7 @@ public class Falert extends DialogFragment implements View.OnClickListener {
     private boolean autoDismiss = true;
     private boolean iconEnable = true;
     private boolean buttonEnable = true;
+    private boolean cancelable = true;
     private String positiveText = null;
     private String negativeText = null;
     private int alertRadius = 40;
@@ -66,6 +67,7 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         show();
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        setCancelable(cancelable);
         return view;
     }
 
@@ -359,6 +361,11 @@ public class Falert extends DialogFragment implements View.OnClickListener {
 
     public Falert setStrokeSingleButtonColor(int strokeSingleButtonColor) {
         this.strokeSingleButtonColor = strokeSingleButtonColor;
+        return this;
+    }
+
+    public Falert setCancelableTouchOutside(boolean cancelable) {
+        this.cancelable = cancelable;
         return this;
     }
 
