@@ -39,39 +39,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private Falert falert;
     private void doubleAction() {
         LayoutInflater inflaterr = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View customView = inflaterr.inflate(R.layout.custom_view, null, false);
 
-        Falert falert = new Falert(this)
+        falert = new Falert(this)
                 .setButtonType(FalertButtonType.Double_BUTTON)
                 .customView(customView)
-                .setAutoDismiss(true)
+                .setAutoDismiss(false)
                 .setPositiveText("مشاهده")
                 .setNegativeText("حذف")
                 .setPositiveButtonBackground(getResources().getColor(R.color.falert_white))
                 .setNegativeButtonBackground(getResources().getColor(R.color.falert_white))
-                .setStrokePositiveButtonColor(getResources().getColor(R.color.falert_green))
-                .setStrokeNegativeButtonColor(getResources().getColor(R.color.falert_red))
                 .setPositiveButtonTextColor(getResources().getColor(R.color.falert_green))
                 .setNegativeButtonTextColor(getResources().getColor(R.color.falert_red))
                 .setstrokeButtonsSize(3)
-                .setHeaderIcon(getResources().getDrawable(R.drawable.profile))
+                .setHeaderIcon(getResources().getDrawable(R.drawable.luncher))
                 .setAlertRadius(40)
                 .setButtonRadius(80)
                 .setButtonTextSize(13)
                 .setHeaderIconEnable(true)
-                .setButtonEnable(false)
+                .setButtonEnable(true)
                 .setTypeFace(Typeface.createFromAsset(getAssets(), "bsans.ttf"))
                 .setDoubleButtonListener(new DoubleButtonListener() {
                     @Override
                     public void onClickPositive() {
                         Toast.makeText(MainActivity.this, "Positive", Toast.LENGTH_SHORT).show();
+                        falert.startAnimationImageClick(true);
                     }
 
                     @Override
                     public void onClickNegative() {
                         Toast.makeText(MainActivity.this, "Negative", Toast.LENGTH_SHORT).show();
+                        falert.startAnimationImageClick(false);
                     }
                 });
         falert.show(getSupportFragmentManager() , "");
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .setStrokeSingleButtonColor(getResources().getColor(R.color.falert_green))
                 .setSingleButtonTextColor(getResources().getColor(R.color.falert_green))
                 .setPositiveText("تایید")
-                .setHeaderIcon(getResources().getDrawable(R.drawable.profile))
+                .setHeaderIcon(getResources().getDrawable(R.drawable.luncher))
                 .setAlertRadius(40)
                 .setstrokeButtonsSize(3)
                 .setButtonRadius(80)

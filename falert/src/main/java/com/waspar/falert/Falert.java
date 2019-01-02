@@ -15,8 +15,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+
 import com.mikhaellopez.circularimageview.CircularImageView;
 
 @SuppressLint("ValidFragment")
@@ -24,7 +26,7 @@ public class Falert extends DialogFragment implements View.OnClickListener {
 
     private Context context;
     private int buttonType;
-    private View roottt , view , icon , buttonRoot;
+    private View roottt, view, icon, buttonRoot;
     private TextView positiveSingleButton, negativeButton, positiveButton;
     private FrameLayout frameLayout;
     private CircularImageView imageView;
@@ -38,6 +40,7 @@ public class Falert extends DialogFragment implements View.OnClickListener {
     private boolean iconEnable = true;
     private boolean buttonEnable = true;
     private boolean cancelable = true;
+    private boolean animateEnable = false;
     private String positiveText = null;
     private String negativeText = null;
     private int alertRadius = 40;
@@ -50,6 +53,7 @@ public class Falert extends DialogFragment implements View.OnClickListener {
     private int PositiveButtonTextColor = 0;
     private int NegativeButtonTextColor = 0;
     private int SingleButtonTextColor = 0;
+    private int backgrounfColor = -1;
     private int strokeButtonsSize = 2;
     private int strokePositiveButtonColor = 0;
     private int strokeNegativeButtonColor = 0;
@@ -72,8 +76,8 @@ public class Falert extends DialogFragment implements View.OnClickListener {
     }
 
     private void init() {
-        if (view == null){
-            view = View.inflate(this.context, R.layout.layout_falert, (ViewGroup)null);
+        if (view == null) {
+            view = View.inflate(this.context, R.layout.layout_falert, (ViewGroup) null);
         }
         roottt = view.findViewById(R.id.root);
         positiveSingleButton = view.findViewById(R.id.falert_single_button);
@@ -81,11 +85,12 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         positiveButton = view.findViewById(R.id.falert_positive_button);
         frameLayout = view.findViewById(R.id.frameLayoutFalert);
         imageView = view.findViewById(R.id.falert_icon);
+        imageView.setOnClickListener(this);
         icon = view.findViewById(R.id.frameLayout2);
         buttonRoot = view.findViewById(R.id.button_root);
 
 
-        if (typeFace != null){
+        if (typeFace != null) {
             positiveButton.setTypeface(typeFace);
             negativeButton.setTypeface(typeFace);
             positiveSingleButton.setTypeface(typeFace);
@@ -95,13 +100,13 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         negativeButton.setTextSize(buttonTextSize);
         positiveSingleButton.setTextSize(buttonTextSize);
 
-        if (PositiveButtonTextColor != 0){
+        if (PositiveButtonTextColor != 0) {
             positiveButton.setTextColor(PositiveButtonTextColor);
         }
-        if (NegativeButtonTextColor != 0){
+        if (NegativeButtonTextColor != 0) {
             negativeButton.setTextColor(NegativeButtonTextColor);
         }
-        if (SingleButtonTextColor != 0){
+        if (SingleButtonTextColor != 0) {
             positiveSingleButton.setTextColor(SingleButtonTextColor);
         }
     }
@@ -121,19 +126,19 @@ public class Falert extends DialogFragment implements View.OnClickListener {
 
         positiveSingleButton.setOnClickListener(this);
 
-        if (positiveText != null){
+        if (positiveText != null) {
             positiveSingleButton.setText(positiveText);
         }
 
-        if (positiveSingleButtonBackground == null){
+        if (positiveSingleButtonBackground == null) {
             positiveSingleButtonBackground = new GradientDrawable();
             positiveSingleButtonBackground.setShape(GradientDrawable.RECTANGLE);
             positiveSingleButtonBackground.setColor(context.getResources().getColor(R.color.falert_green));
             positiveSingleButtonBackground.setStroke(strokeButtonsSize, context.getResources().getColor(R.color.falert_white));
-            if (singleButtonColor != 0){
+            if (singleButtonColor != 0) {
                 positiveSingleButtonBackground.setColor(singleButtonColor);
             }
-            if (strokeSingleButtonColor != 0){
+            if (strokeSingleButtonColor != 0) {
                 positiveSingleButtonBackground.setStroke(strokeButtonsSize, strokeSingleButtonColor);
             }
             positiveSingleButtonBackground.setCornerRadius(buttonRadius);
@@ -149,24 +154,24 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         negativeButton.setOnClickListener(this);
         positiveButton.setOnClickListener(this);
 
-        if (positiveText != null){
+        if (positiveText != null) {
             positiveButton.setText(positiveText);
         }
 
-        if (negativeText != null){
+        if (negativeText != null) {
             negativeButton.setText(negativeText);
         }
 
 
-        if (negativeButtonBackground == null){
+        if (negativeButtonBackground == null) {
             negativeButtonBackground = new GradientDrawable();
             negativeButtonBackground.setShape(GradientDrawable.RECTANGLE);
             negativeButtonBackground.setColor(context.getResources().getColor(R.color.falert_red));
             negativeButtonBackground.setStroke(strokeButtonsSize, context.getResources().getColor(R.color.falert_white));
-            if (negativeButtonColor != 0){
+            if (negativeButtonColor != 0) {
                 negativeButtonBackground.setColor(negativeButtonColor);
             }
-            if (strokeNegativeButtonColor != 0){
+            if (strokeNegativeButtonColor != 0) {
                 negativeButtonBackground.setStroke(strokeButtonsSize, strokeNegativeButtonColor);
             }
             negativeButtonBackground.setCornerRadius(buttonRadius);
@@ -174,15 +179,15 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         negativeButton.setBackground(negativeButtonBackground);
 
 
-        if (positiveButtonBackground == null){
+        if (positiveButtonBackground == null) {
             positiveButtonBackground = new GradientDrawable();
             positiveButtonBackground.setShape(GradientDrawable.RECTANGLE);
             positiveButtonBackground.setColor(context.getResources().getColor(R.color.falert_green));
             positiveButtonBackground.setStroke(strokeButtonsSize, context.getResources().getColor(R.color.falert_white));
-            if (positiveButtonColor != 0){
+            if (positiveButtonColor != 0) {
                 positiveButtonBackground.setColor(positiveButtonColor);
             }
-            if (strokePositiveButtonColor != 0){
+            if (strokePositiveButtonColor != 0) {
                 positiveButtonBackground.setStroke(strokeButtonsSize, strokePositiveButtonColor);
             }
             positiveButtonBackground.setCornerRadius(buttonRadius);
@@ -190,7 +195,7 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         positiveButton.setBackground(positiveButtonBackground);
     }
 
-    public void dismissAlert(){
+    public void dismissAlert() {
         dismiss();
     }
 
@@ -199,19 +204,23 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         int i = v.getId();
         if (i == R.id.falert_negative_button) {
             doubleButtonListener.onClickNegative();
-            if (autoDismiss){
+            if (autoDismiss) {
                 dismiss();
             }
 
         } else if (i == R.id.falert_positive_button) {
             doubleButtonListener.onClickPositive();
-            if (autoDismiss){
+            if (autoDismiss) {
                 dismiss();
             }
         } else if (i == R.id.falert_single_button) {
             singleButtonListener.onClick();
-            if (autoDismiss){
+            if (autoDismiss) {
                 dismiss();
+            }
+        } else if (i == R.id.falert_icon){
+            if (!animateEnable){
+                imageView.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.rotate));
             }
         }
     }
@@ -226,8 +235,19 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         GradientDrawable bgShape = new GradientDrawable();
 
         bgShape.setCornerRadius(alertRadius);
-        bgShape.setColor(getActivity().getResources().getColor(R.color.falert_white));
+        if (backgrounfColor != -1){
+            bgShape.setColor(backgrounfColor);
+            imageView.setBorderColor(backgrounfColor);
+        }else {
+            bgShape.setColor(getActivity().getResources().getColor(R.color.falert_white));
+        }
+
         roottt.setBackground(bgShape);
+    }
+
+    public Falert setBackgrounfColor(int backgrounfColor) {
+        this.backgrounfColor = backgrounfColor;
+        return this;
     }
 
     public Falert setButtonType(int buttonType) {
@@ -370,30 +390,48 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         return this;
     }
 
+    public void startAnimationImageClick(boolean enable) {
+        animateEnable = enable;
+        if (enable){
+            imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_cycle));
+            imageView.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.rotate_indefinitely));
+        }else {
+            imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.luncher));
+            imageView.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.rotate));
+        }
+
+    }
+
+
+
     public Falert show() {
 
         //View v = View.inflate(this.context, R.layout.layout_falert, (ViewGroup)null);
         init();
 
-        if (customView != null){
+        if (customView != null) {
             actionSetCustomView();
         }
 
-        if (iconDrawable != null){
+        if (iconDrawable != null) {
             actionSetIcon();
         }
 
-        if (buttonType == 1){
+        if (buttonType == 1) {
             actionSingleButtun();
-        }else {
+        } else {
             actionDoubleButtun();
         }
 
-        if (!iconEnable){
+        if (!iconEnable) {
             icon.setVisibility(View.INVISIBLE);
         }
 
-        if (!buttonEnable){
+        if (animateEnable) {
+            imageView.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.rotate_indefinitely));
+        }
+
+        if (!buttonEnable) {
             positiveButton.setVisibility(View.GONE);
             negativeButton.setVisibility(View.GONE);
             positiveSingleButton.setVisibility(View.GONE);

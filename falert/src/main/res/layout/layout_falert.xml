@@ -103,7 +103,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/error_circle"
         >
 
 
@@ -113,7 +112,7 @@
             android:layout_height="70dp"
             android:padding="2dp"
             android:layout_gravity="center|top"
-            android:src="@drawable/profile" />
+            android:src="@drawable/luncher" />
 
     </FrameLayout>
 
