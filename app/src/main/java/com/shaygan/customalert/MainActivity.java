@@ -87,7 +87,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .customView(customView)
                 .setAutoDismiss(true)
                 .setSingleButtonBackground(getResources().getColor(R.color.falert_white))
-                .setStrokeSingleButtonColor(getResources().getColor(R.color.falert_green))
                 .setSingleButtonTextColor(getResources().getColor(R.color.falert_green))
                 .setPositiveText("تایید")
                 .setHeaderIcon(getResources().getDrawable(R.drawable.luncher))
