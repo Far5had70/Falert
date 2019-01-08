@@ -95,6 +95,17 @@
 
         </android.support.constraint.ConstraintLayout>
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/frameLayoutLoader"
+            android:visibility="gone"
+            android:layout_above="@+id/button_root">
+
+
+
+        </FrameLayout>
+
     </RelativeLayout>
 
 

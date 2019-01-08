@@ -28,7 +28,7 @@ public class Falert extends DialogFragment implements View.OnClickListener {
     private int buttonType;
     private View roottt, view, icon, buttonRoot;
     private TextView positiveSingleButton, negativeButton, positiveButton;
-    private FrameLayout frameLayout;
+    private FrameLayout frameLayout , frameLayoutLoader;
     private CircularImageView imageView;
 
     private GradientDrawable positiveButtonBackground;
@@ -46,6 +46,7 @@ public class Falert extends DialogFragment implements View.OnClickListener {
     private int alertRadius = 40;
     private int buttonRadius = 80;
     private View customView;
+    private View loaderView;
     private Drawable iconDrawable = null;
     private int positiveButtonColor = 0;
     private int negativeButtonColor = 0;
@@ -53,7 +54,8 @@ public class Falert extends DialogFragment implements View.OnClickListener {
     private int PositiveButtonTextColor = 0;
     private int NegativeButtonTextColor = 0;
     private int SingleButtonTextColor = 0;
-    private int backgrounfColor = -1;
+    private int backgroundColor = -1;
+    private int loaderBackgroundColor = -1;
     private int strokeButtonsSize = 2;
     private int strokePositiveButtonColor = 0;
     private int strokeNegativeButtonColor = 0;
@@ -84,6 +86,7 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         negativeButton = view.findViewById(R.id.falert_negative_button);
         positiveButton = view.findViewById(R.id.falert_positive_button);
         frameLayout = view.findViewById(R.id.frameLayoutFalert);
+        frameLayoutLoader = view.findViewById(R.id.frameLayoutLoader);
         imageView = view.findViewById(R.id.falert_icon);
         imageView.setOnClickListener(this);
         icon = view.findViewById(R.id.frameLayout2);
@@ -117,6 +120,10 @@ public class Falert extends DialogFragment implements View.OnClickListener {
 
     private void actionSetCustomView() {
         frameLayout.addView(customView);
+    }
+
+    private void actionSetLoaderView() {
+        frameLayoutLoader.addView(loaderView);
     }
 
     private void actionSingleButtun() {
@@ -235,9 +242,9 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         GradientDrawable bgShape = new GradientDrawable();
 
         bgShape.setCornerRadius(alertRadius);
-        if (backgrounfColor != -1){
-            bgShape.setColor(backgrounfColor);
-            imageView.setBorderColor(backgrounfColor);
+        if (backgroundColor != -1){
+            bgShape.setColor(backgroundColor);
+            imageView.setBorderColor(backgroundColor);
         }else {
             bgShape.setColor(getActivity().getResources().getColor(R.color.falert_white));
         }
@@ -245,8 +252,8 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         roottt.setBackground(bgShape);
     }
 
-    public Falert setBackgrounfColor(int backgrounfColor) {
-        this.backgrounfColor = backgrounfColor;
+    public Falert setBackgroundColor(int backgroundColor) {
+        this.backgroundColor = backgroundColor;
         return this;
     }
 
@@ -307,6 +314,11 @@ public class Falert extends DialogFragment implements View.OnClickListener {
 
     public Falert customView(View customView) {
         this.customView = customView;
+        return this;
+    }
+
+    public Falert loaderView(View loaderView) {
+        this.loaderView = loaderView;
         return this;
     }
 
@@ -390,16 +402,42 @@ public class Falert extends DialogFragment implements View.OnClickListener {
         return this;
     }
 
+    public Falert setLoaderBackgroundColor(int loaderBackgroundColor) {
+        this.loaderBackgroundColor = loaderBackgroundColor;
+        return this;
+    }
+
     public void startAnimationImageClick(boolean enable) {
         animateEnable = enable;
         if (enable){
             imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_cycle));
             imageView.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.rotate_indefinitely));
+            if (loaderView != null){
+                GradientDrawable bgShape2 = new GradientDrawable();
+                setCornerRadius(bgShape2 , alertRadius , alertRadius , 0 , 0);
+                if (loaderBackgroundColor == -1){
+                    bgShape2.setColor(context.getResources().getColor(R.color.falert_green));
+                }else {
+                    bgShape2.setColor(loaderBackgroundColor);
+                }
+                frameLayoutLoader.setBackground(bgShape2);
+                loaderView.setBackground(bgShape2);
+                frameLayoutLoader.setVisibility(View.VISIBLE);
+            }
         }else {
             imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.luncher));
             imageView.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.rotate));
+            if (loaderView != null){
+                frameLayoutLoader.setVisibility(View.GONE);
+            }
         }
 
+    }
+
+    private void setCornerRadius(GradientDrawable drawable, float topLeft,
+                                float topRight, float bottomRight, float bottomLeft) {
+        drawable.setCornerRadii(new float[] { topLeft, topLeft, topRight, topRight,
+                bottomRight, bottomRight, bottomLeft, bottomLeft });
     }
 
 
@@ -411,6 +449,10 @@ public class Falert extends DialogFragment implements View.OnClickListener {
 
         if (customView != null) {
             actionSetCustomView();
+        }
+
+        if (loaderView != null) {
+            actionSetLoaderView();
         }
 
         if (iconDrawable != null) {

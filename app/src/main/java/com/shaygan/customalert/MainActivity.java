@@ -43,10 +43,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void doubleAction() {
         LayoutInflater inflaterr = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View customView = inflaterr.inflate(R.layout.custom_view, null, false);
+        View loaderView = inflaterr.inflate(R.layout.loader_view, null, false);
 
         falert = new Falert(this)
                 .setButtonType(FalertButtonType.Double_BUTTON)
                 .customView(customView)
+                .loaderView(loaderView)
+                .setLoaderBackgroundColor(getResources().getColor(R.color.falert_red))
                 .setAutoDismiss(false)
                 .setPositiveText("مشاهده")
                 .setNegativeText("حذف")
