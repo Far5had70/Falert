@@ -4,7 +4,7 @@
 
  Falert is a beautiful dialog for Android.
 
-
+<img src="https://raw.githubusercontent.com/Far5had70/Falert/master/screen_record2.gif" height="480" width="270">
 
 # Featuresnegative
 
