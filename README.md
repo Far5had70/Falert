@@ -32,9 +32,10 @@ Step 1. Add the JitPack repository to your build file
 
 Add it in your root build.gradle at the end of repositories:
 
+
 ```gradle
 	dependencies {
-	        implementation 'com.github.Far5had70:Falert:3.1.0'
+	        implementation 'com.github.Far5had70:Falert:3.2.0'
 	}
 ```
 
