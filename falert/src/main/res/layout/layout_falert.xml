@@ -19,9 +19,19 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/frameLayoutFalert"
+            android:id="@+id/frameLayout3"
             android:layout_marginTop="40dp">
 
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/frameLayoutFalert"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/frameLayoutLoader"
+                android:visibility="gone"/>
 
         </FrameLayout>
 
@@ -29,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:id="@+id/button_root"
-            android:layout_below="@+id/frameLayoutFalert">
+            android:layout_below="@+id/frameLayout3">
 
 
             <TextView
@@ -94,16 +104,6 @@
 
 
         </android.support.constraint.ConstraintLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/frameLayoutLoader"
-            android:visibility="gone">
-
-
-
-        </FrameLayout>
 
     </RelativeLayout>
 
