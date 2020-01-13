@@ -414,7 +414,7 @@ public class Falert extends DialogFragment implements View.OnClickListener {
             imageView.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.rotate_indefinitely));
             if (loaderView != null){
                 GradientDrawable bgShape2 = new GradientDrawable();
-                setCornerRadius(bgShape2 , alertRadius , alertRadius , 0 , 0);
+                setCornerRadius(bgShape2 , alertRadius , alertRadius , alertRadius , alertRadius);
                 if (loaderBackgroundColor == -1){
                     bgShape2.setColor(context.getResources().getColor(R.color.falert_green));
                 }else {

@@ -1,4 +1,5 @@
 # Falert
+[![](https://jitpack.io/v/Far5had70/Falert.svg)](https://jitpack.io/#Far5had70/Falert)
 
 <img src="https://raw.githubusercontent.com/Far5had70/Falert/master/screen_record.gif" height="480" width="270">
 
@@ -35,7 +36,7 @@ Add it in your root build.gradle at the end of repositories:
 
 ```gradle
 	dependencies {
-	        implementation 'com.github.Far5had70:Falert:3.2.0'
+	        implementation 'com.github.Far5had70:Falert:3.6.0'
 	}
 ```
 
