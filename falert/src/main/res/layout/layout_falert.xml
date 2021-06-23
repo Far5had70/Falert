@@ -61,13 +61,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <android.support.constraint.Guideline
-                android:id="@+id/guideline2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.5" />
-
 
             <TextView
                 android:id="@+id/falert_negative_button"
@@ -75,10 +68,8 @@
                 android:layout_height="0dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
                 android:gravity="center"
-                android:padding="5dp"
+                android:padding="8dp"
                 android:text="انصراف"
                 android:textColor="@color/falert_white"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -92,10 +83,8 @@
                 android:layout_height="0dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
                 android:gravity="center"
-                android:padding="5dp"
+                android:padding="8dp"
                 android:text="تائید"
                 android:textColor="@color/falert_white"
                 app:layout_constraintBottom_toBottomOf="parent"
